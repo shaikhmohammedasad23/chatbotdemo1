@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+body {
+    background: lightgrey;
+    margin: 10px;
+    padding: 10px;
+}
+.container {
+    border: 2px solid #dedede;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px auto;
+}
+.heading{
+	text-align: right;
+    background: lightblue;
+    color: #000;
+    padding: 10px;
+	text-align:center;
+    text-transform: uppercase;
+}
+.chat-reply{
+    text-align: right;
+    text-transform: capitalize;
+    font-weight: 700;
+    padding: 5px;
+    color: #000;
+}
+.chat-wrapper > input {
+    width: 100%;
+    background: #fff;
+    border: transparent;
+    font-size: 19px;
+    padding: 5px;
+    margin: 5px auto;
+}
+</style>
+    <script>
+        var know = {
+            "what is your name?": "My name is Mohammed Asad",
+            "how old are you": "I am 25 year old",
+            "ok": ":)"
+        };
+        function talk() {
+            var user = document.getElementById("userBox").value;
+            document.getElementById("userBox").value = "";
+            document.getElementById("chatLog").innerHTML += user + "<br>";
+            if (user in know) {
+                document.getElementById("chatLog").innerHTML += know[user] + "</br>";
+				
+            } else {
+                document.getElementById("chatLog").innerHTML += "I don't understant....<br>";			
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="container">
+    <h4 class="heading">Chat Messages Logs</h4>
+	</br>
+	<div class="chat-reply" id="chatLog"></div>
+	<div class="chat-wrapper">
+	<input id="userBox" type="text" onkeydown="if(event.keyCode==13){talk()}">
+	</div>
+</div>
+</body>
+</html>
